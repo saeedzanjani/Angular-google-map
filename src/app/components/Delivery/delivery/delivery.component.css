@@ -1,0 +1,8 @@
+/*Media Query Start*/
+@media (max-width: 1000px) {
+  .sec {
+    width: 100%;
+  }
+}
+
+/*Media Query End*/

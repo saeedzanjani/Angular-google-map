@@ -1,0 +1,34 @@
+<div
+  class="accordion mt-5 w-75 text-center mx-auto arrivedWrapper"
+  id="accordionExample2"
+>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo2">
+      <button class="accordion-button collapsed text-light bg-danger btn-outline-danger" type="button"
+              data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false"
+              aria-controls="collapseTwo">
+        Arrived Package List
+      </button>
+    </h2>
+    <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2"
+         data-bs-parent="#accordionExample2">
+      <div
+        [ngStyle]="{overflow: 'auto', height: arrived.length > 0 ? '12vh' : '8vh'}"
+      >
+        <div
+          class="accordion-body"
+        >
+          <div
+            *ngFor="let item of arrived; let i = index"
+          >
+            <strong *ngIf="item">{{item}}</strong>
+            <hr *ngIf="item !== arrived[arrived.length - 1]">
+          </div>
+          <strong *ngIf="arrived.length === 0">
+            Not Package Arrived
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

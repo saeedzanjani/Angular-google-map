@@ -1,0 +1,38 @@
+<section
+  class="accordion mt-5 w-75 text-center mx-auto"
+  id="accordionExample"
+>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button
+        class="accordion-button collapsed bg-warning btn-outline-warning"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseTwo"
+        aria-expanded="false" aria-controls="collapseTwo"
+      >
+        Customer List
+      </button>
+    </h2>
+    <div id="collapseTwo"
+         class="accordion-collapse collapse"
+         aria-labelledby="headingTwo"
+         data-bs-parent="#accordionExample">
+      <div class="customer">
+        <div
+          class="accordion-body"
+          *ngFor="let item of customers; let i = index"
+        >
+          <strong>{{item.label}}</strong>
+          <br>
+          <strong>Latitude: </strong>
+          <code>{{item.lat}}</code>
+          <br>
+          <strong>Longitude: </strong>
+          <code>{{item.lng}}</code>
+          <hr *ngIf="item !== customers[customers.length - 1]">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

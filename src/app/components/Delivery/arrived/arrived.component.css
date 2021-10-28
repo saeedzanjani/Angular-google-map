@@ -1,0 +1,24 @@
+.arrived{
+  overflow: auto;
+  height: 12vh;
+}
+
+/*Media Query Start*/
+@media (max-width: 1000px) {
+  .arrived{
+    overflow: auto;
+    height: 10vh;
+  }
+
+  .arrivedWrapper{
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .arrived{
+    overflow: auto;
+    height: 8vh;
+  }
+}
+/*Media Query End*/

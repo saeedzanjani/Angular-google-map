@@ -1,0 +1,42 @@
+<div class="">
+  <div class="container mt-4">
+    <div class="row wrapper">
+
+      <!-- Start Google Map Section-->
+      <section class="col-8 p-0 sec">
+        <app-map
+          [vehicle]="vehicle"
+          [selectedVehicle]="selectedVehicle"
+          (customers)="customers=$event"
+          (drivers)="drivers=$event"
+          (myArrived)="arrived=$event"
+        >
+        </app-map>
+      </section>
+      <!--End Google Map Section-->
+
+      <!--Start Details Section-->
+      <section class="col-4 bg-primary mx-auto sec">
+
+        <!--Start Vehicles-->
+        <app-drivers
+          (selected)="selectedVehicle=$event"
+        >
+        </app-drivers>
+        <!--End Vehicles-->
+
+        <!--Start Customer List-->
+        <app-customers [customers]="customers"></app-customers>
+        <!--End Customer List-->
+
+        <!--Start Arrived List-->
+        <app-arrived [arrived]="arrived"></app-arrived>
+        <!--End Arrived List-->
+
+      </section>
+      <!--End Details Section-->
+
+    </div>
+  </div>
+
+</div>

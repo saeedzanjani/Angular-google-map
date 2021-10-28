@@ -1,0 +1,15 @@
+<div>
+  <h4 class="text-light text-center mt-3 title">Choose Your Vehicle</h4>
+  <select
+    class="form-select w-50 mx-auto mt-4 bg-success text-light btn-outline-success drop-vehicle"
+    (change)="changed($event)"
+  >
+    <option
+      *ngFor="let v of vehicle"
+      [value]="v"
+      [selected]="v === selectedVehicle"
+    >
+      {{v}}
+    </option>
+  </select>
+</div>

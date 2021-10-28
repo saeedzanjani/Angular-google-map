@@ -1,0 +1,63 @@
+<agm-map
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  (mapClick)="mapClicked($event)"
+>
+
+  <!--Start Store Marker-->
+  <agm-marker
+    [latitude]="lat"
+    [longitude]="lng"
+    [iconUrl]="companyIcon"
+  >
+
+    <agm-info-window>
+      <strong>Store Location</strong>
+      <br/><br/>
+      <p>Store details</p>
+    </agm-info-window>
+  </agm-marker>
+  <!--End Store Marker-->
+
+  <!--Start Customer Marker-->
+  <agm-marker
+    *ngFor="let item of myCustomers; let i = index"
+    [latitude]="item.lat"
+    [longitude]="item.lng"
+    [markerDraggable]="item.draggable"
+    (dragStart)="customerDragStart($event)"
+    (dragEnd)="customerDragEnd($event)"
+  >
+    <agm-info-window>
+      <strong>{{item.label}}</strong>
+      <br/><br/>
+      <p>customer details</p>
+    </agm-info-window>
+  </agm-marker>
+  <!--End Customer Marker-->
+
+  <!--Start Driver Marker-->
+  <agm-marker
+    *ngFor="let item of myDrivers; let i = index"
+    [latitude]="item.lat"
+    [longitude]="item.lng"
+    [iconUrl]="selectedVehicle === vehicle[1] ? bicycleIcon : carIcon"
+    (markerClick)="clickedMarker(item, i)"
+    [markerDraggable]="true"
+    (dragStart)="driverDragStart($event)"
+    (dragEnd)="driverDragEnd($event)"
+  >
+  </agm-marker>
+  <!--End Driver Marker-->
+
+  <!--Start Circle Marker-->
+  <agm-circle [latitude]="lat + 0.03" [longitude]="lng"
+              [radius]="800"
+              [fillColor]="'red'"
+              [circleDraggable]="true"
+              [editable]="true">
+  </agm-circle>
+  <!--End Circle Marker-->
+</agm-map>
